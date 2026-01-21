@@ -16,4 +16,4 @@ TODO - Describe the project and its functionality
 
 This webpage is deployed to Github Pages
 
-- Deployment Link:
+- [Deployment Link:](http://127.0.0.1:5500/)
