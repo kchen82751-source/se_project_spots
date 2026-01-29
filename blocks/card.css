@@ -2,11 +2,19 @@
   max-width: 413px;
 }
 
+.card__title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .card__image {
   height: 413px;
   object-fit: cover;
   width: 100%;
   display: block;
+  border-radius: 8px;
+  margin-bottom: 12px;
 }
 
 .card__content {
@@ -24,8 +32,16 @@
   opacity: 40%;
 }
 
+.card__like-btn:hover {
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 627px) {
   .card__image {
     height: 288px;
+  }
+
+  .card__title {
+    max-width: 235px; /* Smaller width for mobile */
   }
 }

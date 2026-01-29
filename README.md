@@ -4,7 +4,21 @@ An image sharing site.
 
 ## Description
 
-TODO - Describe the project and its functionality
+## About The Project
+
+[Your project description here]
+
+## Technologies Used
+
+[Your technologies list here]
+
+## Screenshots
+
+[Your screenshots here]
+
+## Live Demo
+
+[Link to your GitHub Pages deployment]
 
 ## Tech Stack
 
@@ -16,4 +30,4 @@ TODO - Describe the project and its functionality
 
 This webpage is deployed to Github Pages
 
-- [Deployment Link:](http://127.0.0.1:5500/)
+- [Deployment Link:](https://github.com/kchen82751-source/se_project_spots)
