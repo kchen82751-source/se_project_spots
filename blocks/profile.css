@@ -22,6 +22,8 @@
   font-weight: 500;
   color: #212121;
   max-width: 420px;
+  margin-top: inherit;
+  margin-bottom: 12px;
 }
 
 .profile__description {
@@ -35,39 +37,11 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  margin-top: inherit;
 }
 
-.profile__edit-btn:hover {
-  margin-top: auto;
-}
-
-.profile__add-btn:hover {
-  margin-left: auto;
-}
-
-.profileedit-btn,
 .profile__add-btn {
-  border: none;
-  background: transparent;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-}
-
-.profileedit-btn:hover,
-.profile__add-btn:hover {
-  opacity: 0.8;
-}
-
-.profileedit-btn:focus-visible,
-.profile__add-btn:focus-visible {
-  outline: 2px solid #007bff;
-  outline-offset: 2px;
-}
-
-.new-post-btn {
+  margin-left: auto;
   width: 157px;
   height: 52px;
   background: #212121;
@@ -75,11 +49,27 @@
   border-radius: 8px;
   font: 500 16px/1 Poppins;
   cursor: pointer;
-  border: none; /* Remove default button border */
+  border: none;
+  margin-top: auto;
 }
 
-.new-post-btn:hover {
-  opacity: 0.8; /* Subtle hover feedback */
+.profile__add-btn:hover {
+  /* Add hover styles here */
+}
+
+/*Default button styles*/
+.profile__edit-btn {
+  margin-top: auto;
+  border: none;
+  background: transparent;
+  display: flex;
+  gap: 8px;
+  opacity: 0.7;
+}
+
+/* Hover button styles */
+.profile__edit-btn:hover {
+  opacity: 1;
 }
 
 @media screen and (max-width: 627px) {
