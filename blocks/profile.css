@@ -54,7 +54,7 @@
 }
 
 .profile__add-btn:hover {
-  /* Add hover styles here */
+  opacity: 0.6;
 }
 
 /*Default button styles*/
