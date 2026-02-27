@@ -30,6 +30,6 @@ An image sharing site.
 
 This webpage is deployed to Github Pages
 
-- [Deployment Link](https://github.com/kchen82751-source/se_project_spots)
+- [Deployment Link](https://kchen82751-source.github.io/se_project_spots/)
 
 - [Project Pitch](https://drive.google.com/file/d/11xg4DZ6pVR7SEyPQWeo63LwtaOw0jlV1/view?usp=sharing)

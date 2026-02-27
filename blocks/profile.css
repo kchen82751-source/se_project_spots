@@ -22,8 +22,11 @@
   font-weight: 500;
   color: #212121;
   max-width: 420px;
-  margin-top: inherit;
-  margin-bottom: 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .profile__description {
@@ -102,28 +105,28 @@
   .profile__column {
     margin-right: 0;
     text-align: center;
+    align-items: center;
   }
 
   .profile__add-btn {
+    margin-top: 20px;
     margin-left: 0;
     width: 100%;
     max-width: 100%;
   }
-}
 
-@media (min-width: 630px) {
+  .new-post-btn {
+    width: 100%; /* Takes full width of container */
+  }
+
   .button-container {
     display: flex;
     justify-content: flex-end; /* Pushes button to the right */
   }
-
-  .new-post-btn {
-    width: 157px; /* Fixed width on desktop */
-  }
 }
 
-@media (max-width: 629px) {
+@media (min-width: 630px) {
   .new-post-btn {
-    width: 100%; /* Takes full width of container */
+    width: 157px; /* Fixed width on desktop */
   }
 }
