@@ -12,7 +12,7 @@ const editProfileDescriptionInput = editProfileModal.querySelector(
 
 const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal"); // What is newPostModal
-const addCloseBtn = newPostModal.querySelector(".modal__close-btn"); // What is addModal
+const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn"); // What is addModal
 
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
@@ -27,12 +27,12 @@ editProfileCloseBtn.addEventListener("click", function () {
   editProfileModal.classList.remove("modal_is-opened");
 });
 
-addBtn.addEventListener("click", function () {
-  addBtn.classList.add("modal_is-opened");
+newPostBtn.addEventListener("click", function () {
+  newPostModal.classList.add("modal_is-opened");
 });
 
-addCloseBtn.addEventListener("click", function () {
-  addModal.classList.remove("modal_is-opened");
+newPostCloseBtn.addEventListener("click", function () {
+  newPostModal.classList.remove("modal_is-opened");
 });
 
 const newPostForm = document.querySelector("#new-post-modal .modal__form");
@@ -48,10 +48,6 @@ newPostForm.addEventListener("submit", function (evt) {
   // Log both values to console (as required)
   console.log("Title:", newPostTitleInput.value);
   console.log("Description:", newPostDescriptionInput.value);
-});
-
-addModal.addEventListener("click", function () {
-  addModal.classList.remove("modal_is-opened");
 });
 
 function handleEditProfileSubmit(evt) {
