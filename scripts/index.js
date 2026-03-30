@@ -28,7 +28,7 @@ editProfileCloseBtn.addEventListener("click", function () {
 });
 
 addBtn.addEventListener("click", function () {
-  addModal.classList.add("modal_is-opened");
+  addBtn.classList.add("modal_is-opened");
 });
 
 addCloseBtn.addEventListener("click", function () {
