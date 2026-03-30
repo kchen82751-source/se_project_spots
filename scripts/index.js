@@ -5,6 +5,7 @@ const editProfileForm = editProfileModal.querySelector(".modal__form");
 const editProfileNameInput = editProfileModal.querySelector(
   "#profile-name-input",
 );
+
 const editProfileDescriptionInput = editProfileModal.querySelector(
   "#profile-description-input",
 );
@@ -48,7 +49,7 @@ newPostForm.addEventListener("submit", function (evt) {
   console.log("Title:", newPostTitleInput.value);
   console.log("Description:", newPostDescriptionInput.value);
 
-  // Close the modal
+addModal.addEventListener("click", function () {
   addModal.classList.remove("modal_is-opened");
 });
 
