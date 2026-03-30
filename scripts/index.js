@@ -11,8 +11,8 @@ const editProfileDescriptionInput = editProfileModal.querySelector(
 );
 
 const newPostBtn = document.querySelector(".profile__add-btn");
-const newPostModal = document.querySelector("#new-post-modal");
-const addCloseBtn = addModal.querySelector(".modal__close-btn");
+const newPostModal = document.querySelector("#new-post-modal"); // What is newPostModal
+const addCloseBtn = newPostModal.querySelector(".modal__close-btn"); // What is addModal
 
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
@@ -48,6 +48,7 @@ newPostForm.addEventListener("submit", function (evt) {
   // Log both values to console (as required)
   console.log("Title:", newPostTitleInput.value);
   console.log("Description:", newPostDescriptionInput.value);
+});
 
 addModal.addEventListener("click", function () {
   addModal.classList.remove("modal_is-opened");
