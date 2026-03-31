@@ -6,7 +6,7 @@ An image sharing site.
 
 ## About The Project
 
-[Your project description here]
+The description, technologies, and screenshots sections still contain placeholder text.
 
 ## Technologies Used
 

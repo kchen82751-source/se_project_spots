@@ -37,8 +37,8 @@ newPostCloseBtn.addEventListener("click", function () {
 
 const newPostForm = document.querySelector("#new-post-modal .modal__form");
 const newPostTitleInput = newPostForm.querySelector("#card-title-input"); // or whatever the ID is
-const newPostDescriptionInput = newPostForm.querySelector(
-  "#new-post-description-input",
+const newPostCaptionInput = newPostForm.querySelector(
+  "#new-post-caption-input",
 ); // or whatever the ID is
 
 // Then add the submit event listener
@@ -48,6 +48,16 @@ newPostForm.addEventListener("submit", function (evt) {
   // Log both values to console (as required)
   console.log("Title:", newPostTitleInput.value);
   console.log("Description:", newPostDescriptionInput.value);
+});
+newPostForm.addEventListener("submit", function (evt) {
+  evt.preventDefault(); // Stop the page from reloading
+
+  // Log both values to console (as required)
+  console.log("Title:", newPostTitleInput.value);
+  console.log("Description:", newPostDescriptionInput.value);
+
+  // Close the modal after submission
+  newPostModal.classList.remove("modal_is-opened");
 });
 
 function handleEditProfileSubmit(evt) {

@@ -132,7 +132,7 @@
             <label for="profile-description-input" class="modal__label">
               Description
               <input
-                id="new-post-description-input"
+                id="profile-description-input"
                 type="text"
                 class="modal__input"
                 placeholder="Describe yourself"
@@ -144,7 +144,13 @@
       </div>
       <div class="modal" id="new-post-modal">
         <div class="modal__container">
-          <button type="button" class="modal__close-btn">X</button>
+          <button
+            type="button"
+            class="modal__close-btn"
+            aria-label="Close modal"
+          >
+            X
+          </button>
           <h2 class="modal__title">New post</h2>
           <form class="modal__form">
             <label for="card-image-input" class="modal__label">
@@ -160,7 +166,7 @@
             <label for="profile-description-input" class="modal__label">
               Description
               <input
-                id="profile-description-input"
+                id="new-post-caption-input"
                 type="text"
                 class="modal__input"
                 placeholder="Describe yourself"
