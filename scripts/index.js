@@ -16,11 +16,13 @@ const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn"); // What
 
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
-
+function openModal(modal) {
+  modal.classList.add("modal_is-opened");
+}
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent; // Current line
   editProfileDescriptionInput.value = profileDescriptionEl.textContent; // Add this line!
-  editProfileModal.classList.add("modal_is-opened");
+  openModal(editProfileModal);
 });
 
 editProfileCloseBtn.addEventListener("click", function () {
@@ -28,7 +30,7 @@ editProfileCloseBtn.addEventListener("click", function () {
 });
 
 newPostBtn.addEventListener("click", function () {
-  newPostModal.classList.add("modal_is-opened");
+  openModal(newPostModal);
 });
 
 newPostCloseBtn.addEventListener("click", function () {
@@ -45,7 +47,7 @@ newPostForm.addEventListener("submit", function (evt) {
   evt.preventDefault(); // Stop the page from reloading
 
   // Log both values to console (as required)
-  console.log("Title:", newPostTitleInput.value);
+  console.log("Image link:", newPostImageInput.value);
   console.log("Description:", newPostCaptionInput.value);
 
   // Close the modal after submission
