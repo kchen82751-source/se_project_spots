@@ -33,6 +33,7 @@
   background-color: #fff;
   padding: 32px 50px;
   position: relative;
+  box-sizing: border-box;
 }
 
 .container {
@@ -42,9 +43,24 @@
 /* Mobile styles for smaller screens */
 @media screen and (max-width: 627px) {
   .modal__container {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    /* your other existing styles */
+    /* Reduce padding for mobile */
+    padding: [smaller values];
+  }
+
+  .modal__title {
+    /* Smaller font size */
+    font-size: [mobile size];
+  }
+
+  .modal__submit-btn {
+    /* Full width button */
+    width: 100%;
+  }
+
+  .modal__close-btn {
+    /* Closer to corner */
+    top: [smaller value];
+    right: [smaller value];
   }
 }
 
@@ -56,10 +72,13 @@
   height: 40px;
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .modal__title {
   margin: 0 0 32px;
+  font-size: 32px;
+  font-weight: 500;
 }
 
 .modal__form {
@@ -75,7 +94,6 @@
   display: block;
   margin: 8px 0 0;
   width: 100%;
-  height: 35px;
   padding-top: 16px;
   padding-bottom: 16px;
   padding-right: 12px;

@@ -13,7 +13,11 @@ const editProfileDescriptionInput = editProfileModal.querySelector(
 const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal"); // What is newPostModal
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn"); // What is addModal
-
+const newPostForm = document.querySelector("#new-post-modal .modal__form");
+const newPostImageInput = newPostForm.querySelector("#card-image-input");
+const newPostCaptionInput = newPostForm.querySelector(
+  "#new-post-caption-input",
+); // or whatever the ID is
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 function openModal(modal) {
@@ -26,22 +30,16 @@ editProfileBtn.addEventListener("click", function () {
 });
 
 editProfileCloseBtn.addEventListener("click", function () {
-  editProfileModal.classList.remove("modal_is-opened");
+  closeModal(editProfileModal);
 });
 
-newPostBtn.addEventListener("click", function () {
-  openModal(newPostModal);
+newPostCloseBtn.addEventListener("click", function () {
+  closeModal(newPostModal);
 });
 
 newPostCloseBtn.addEventListener("click", function () {
   newPostModal.classList.remove("modal_is-opened");
 });
-
-const newPostForm = document.querySelector("#new-post-modal .modal__form");
-const newPostImageInput = newPostForm.querySelector("#card-image-input");
-const newPostCaptionInput = newPostForm.querySelector(
-  "#new-post-caption-input",
-); // or whatever the ID is
 
 newPostForm.addEventListener("submit", function (evt) {
   evt.preventDefault(); // Stop the page from reloading
