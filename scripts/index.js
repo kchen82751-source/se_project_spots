@@ -23,6 +23,11 @@ const profileDescriptionEl = document.querySelector(".profile__description");
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
 }
+
+function closeModal(modal) {
+  modal.classList.remove("modal_is-opened");
+}
+
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent; // Current line
   editProfileDescriptionInput.value = profileDescriptionEl.textContent; // Add this line!
