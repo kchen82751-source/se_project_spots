@@ -55,6 +55,7 @@ newPostForm.addEventListener("submit", function (evt) {
 
   // Close the modal after submission
   closeModal(newPostModal);
+  newPostForm.reset();
 });
 
 function handleEditProfileSubmit(evt) {
