@@ -38,12 +38,12 @@ editProfileCloseBtn.addEventListener("click", function () {
   closeModal(editProfileModal);
 });
 
-newPostCloseBtn.addEventListener("click", function () {
-  closeModal(newPostModal);
+newPostBtn.addEventListener("click", function () {
+  openModal(newPostModal);
 });
 
 newPostCloseBtn.addEventListener("click", function () {
-  newPostModal.classList.remove("modal_is-opened");
+  closeModal(newPostModal);
 });
 
 newPostForm.addEventListener("submit", function (evt) {
@@ -54,7 +54,7 @@ newPostForm.addEventListener("submit", function (evt) {
   console.log("Description:", newPostCaptionInput.value);
 
   // Close the modal after submission
-  newPostModal.classList.remove("modal_is-opened");
+  closeModal(newPostModal);
 });
 
 function handleEditProfileSubmit(evt) {

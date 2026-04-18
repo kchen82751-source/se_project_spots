@@ -103,11 +103,19 @@
   background: #000000; /* Darker background */
 }
 
+.modal__close-btn:hover {
+  /* Add visual feedback here */
+  opacity: 0.7;
+  background-color: #f0f0f0;
+  transform: scale(1.1);
+  color: #ff0000;
+}
+
 /* Mobile styles for smaller screens */
 @media screen and (max-width: 627px) {
   .modal__container {
     /* Reduce padding for mobile */
-    padding: [smaller values];
+    padding: 12px;
   }
 
   .modal__title {
@@ -122,7 +130,7 @@
 
   .modal__close-btn {
     /* Closer to corner */
-    top: [smaller value];
-    right: [smaller value];
+    top: 8px;
+    right: 8px;
   }
 }
