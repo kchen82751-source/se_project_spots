@@ -20,6 +20,7 @@ const newPostCaptionInput = newPostForm.querySelector(
 ); // or whatever the ID is
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
+const closeButtons = document.querySelectorAll(".modal__close-btn");
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
 }
@@ -28,22 +29,25 @@ function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
 }
 
+closeButtons.forEach((button) => {
+  // Find the closest popup only once
+  const popup = button.closest(".modal");
+  // Set the listener
+  button.addEventListener("click", () => closeModal(popup));
+});
+
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent; // Current line
   editProfileDescriptionInput.value = profileDescriptionEl.textContent; // Add this line!
   openModal(editProfileModal);
 });
 
-editProfileCloseBtn.addEventListener("click", function () {
-  closeModal(editProfileModal);
-});
+//editProfileCloseBtn.addEventListener("click", function () {
+//  closeModal(editProfileModal);
+//});
 
 newPostBtn.addEventListener("click", function () {
   openModal(newPostModal);
-});
-
-newPostCloseBtn.addEventListener("click", function () {
-  closeModal(newPostModal);
 });
 
 newPostForm.addEventListener("submit", function (evt) {
@@ -62,7 +66,7 @@ function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   profileNameEl.textContent = editProfileNameInput.value; // Updates name
   profileDescriptionEl.textContent = editProfileDescriptionInput.value; // Updates description
-  editProfileModal.classList.remove("modal_is-opened");
+  closeModal(editProfileModal); // ✅ Use the existing function!
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
