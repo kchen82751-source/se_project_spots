@@ -48,10 +48,13 @@ const newPostCaptionInput = newPostForm.querySelector(
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 const closeButtons = document.querySelectorAll(".modal__close-btn");
+
+// Todo - use this function wherever needed
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
 }
 
+// Todo - use this function wherever needed
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
 }
@@ -69,9 +72,9 @@ editProfileBtn.addEventListener("click", function () {
   openModal(editProfileModal);
 });
 
-//editProfileCloseBtn.addEventListener("click", function () {
-//  closeModal(editProfileModal);
-//});
+editProfileCloseBtn.addEventListener("click", function () {
+  closeModal(editProfileModal);
+});
 
 newPostBtn.addEventListener("click", function () {
   openModal(newPostModal);
