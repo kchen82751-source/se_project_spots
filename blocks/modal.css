@@ -19,6 +19,10 @@
     visibility 0s linear 0.3s;
 }
 
+.modal_type_preview {
+  padding: 0 16px;
+}
+
 .modal_is-opened {
   visibility: visible;
   opacity: 1;
@@ -50,6 +54,14 @@
   border: none;
   cursor: pointer;
 }
+
+.modal__close-btn_type_preview {
+  /* TODO - set up correct background image */
+  top: 0;
+  right: -52.5px;
+}
+
+/* TODO set up preview close button's hover state */
 
 .modal__title {
   margin: 0 0 32px;
@@ -111,6 +123,23 @@
   color: #ff0000;
 }
 
+.modal__image-container {
+  position: relative;
+}
+
+.modal__image {
+  max-width: 80vw;
+  max-height: 80vh;
+  width: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+}
+
+.modal__caption {
+  /*TODO - style correctly */
+  color: white;
+}
 /* Mobile styles for smaller screens */
 @media screen and (max-width: 627px) {
   .modal__container {
@@ -134,5 +163,22 @@
     /* Closer to corner */
     top: 8px;
     right: 8px;
+  }
+
+  .modal__close-btn_type_preview {
+    top: -40px;
+    right: 0px;
+  }
+}
+
+@media screen and (max-width: 627px) {
+  /* Place below the 480px media query to avoid being overwritten. */
+  .modal__close-btn_type_preview {
+    top: -40px;
+    right: 0px;
+  }
+
+  .modal__image {
+    max-width: unset;
   }
 }
