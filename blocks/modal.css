@@ -40,10 +40,6 @@
   box-sizing: border-box;
 }
 
-.container {
-  padding: 0 40px; /* More padding for desktop */
-}
-
 .modal__close-btn {
   position: absolute;
   top: 32px;
@@ -86,7 +82,6 @@
   padding-bottom: 16px;
   padding-right: 12px;
   padding-left: 12px;
-  gap: 10px;
   border: 1px solid rgba(33, 33, 33, 0.4);
   box-sizing: border-box;
   border-radius: 8px;
@@ -137,8 +132,27 @@
 }
 
 .modal__caption {
-  /*TODO - style correctly */
   color: white;
+
+  /* Typography */
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 400;
+
+  /* Positioning */
+  position: relative; /* or absolute, depending on layout */
+  margin-top: 10px; /* Space below image */
+
+  /* Spacing */
+  padding: 8px 12px;
+
+  /* Visual styling */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  border-radius: 8px;
+
+  /* Ensure readability */
+  max-width: 100%;
+  word-wrap: break-word;
 }
 /* Mobile styles for smaller screens */
 @media screen and (max-width: 627px) {
@@ -150,7 +164,7 @@
 
   .modal__title {
     /* Smaller font size */
-    font-size: [mobile size];
+    font-size: 20px; /* or 16px, 18px, etc. */
   }
 
   .modal__submit-btn {
@@ -169,16 +183,15 @@
     top: -40px;
     right: 0px;
   }
-}
-
-@media screen and (max-width: 627px) {
-  /* Place below the 480px media query to avoid being overwritten. */
-  .modal__close-btn_type_preview {
-    top: -40px;
-    right: 0px;
-  }
 
   .modal__image {
     max-width: unset;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .modal__caption {
+    font-size: 16px; /* Smaller but still readable */
+    padding: 6px 8px; /* Tighter spacing */
   }
 }

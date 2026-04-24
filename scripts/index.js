@@ -42,8 +42,6 @@ const editProfileDescriptionInput = editProfileModal.querySelector(
 );
 
 const newPostBtn = document.querySelector(".profile__add-btn");
-const newPostModal = document.querySelector("#new-post-modal"); // What is newPostModal
-const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn"); // What is addModal
 const newPostForm = document.querySelector("#new-post-modal .modal__form");
 const newPostImageInput = newPostForm.querySelector("#card-image-input");
 const newPostCaptionInput = newPostForm.querySelector(
@@ -51,7 +49,6 @@ const newPostCaptionInput = newPostForm.querySelector(
 ); // or whatever the ID is
 
 const previewModal = document.querySelector("#preview-modal");
-const previewModalCloseBtn = previewModal.querySelector(".modal__close");
 const previewImageEl = previewModal.querySelector(".modal__image");
 // TODO - select the name element
 
@@ -80,13 +77,13 @@ function getCardElement(data) {
 
   const cardDeleteBtnEl = cardElement.querySelector(".card__delete-button");
   cardDeleteBtnEl.addEventListener("click", () => {
-    cardElement.remove();
     cardElement = null;
   });
 
   cardImageEl.addEventListener("click", () => {
     previewImageEl.src = data.link;
-    // TODO - set the other property values
+    previewImageEl.alt = data.name;
+    previewCaptionEl.textContent = data.name;
     openModal(previewModal);
   });
 
@@ -114,10 +111,6 @@ editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent; // Current line
   editProfileDescriptionInput.value = profileDescriptionEl.textContent; // Add this line!
   openModal(editProfileModal);
-});
-
-editProfileCloseBtn.addEventListener("click", function () {
-  closeModal(editProfileModal);
 });
 
 //TODO - set click listener

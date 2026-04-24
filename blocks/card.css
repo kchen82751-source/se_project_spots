@@ -21,16 +21,48 @@
   width: 100%;
   display: block;
   border-radius: 8px;
-  margin-bottom: 12px;
+  cursor: pointer; /* Shows hand cursor on hover */
+  transition: transform 0.3s ease; /* Smooth animation */
+}
+
+.card__image:hover {
+  transform: scale(1.05); /* Slightly grows on hover */
+  /* OR other options: */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+  /* opacity: 0.9; */
 }
 
 .card__delete-button {
-  /*TODO - style */
   width: 32px;
   height: 32px;
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 10px; /* Don't forget positioning! */
+
+  /* Add the delete icon */
+  background-image: url("../images/delete.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 32px 32px;
+
+  /* Make it look like a button */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  /* Add smooth transitions */
+  transition:
+    opacity 0.3s ease,
+    transform 0.2s ease;
+}
+
+.card__delete-button:hover {
+  /* Choose one or combine effects: */
+  opacity: 0.7; /* Fade effect */
+  /* OR */
+  transform: scale(1.1); /* Grow slightly */
+  /* OR */
+  background-color: rgba(255, 0, 0, 0.1); /* Light red background */
 }
 
 /* TODO - hover state for delete button */
@@ -48,6 +80,8 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .card__like-btn:hover {

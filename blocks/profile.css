@@ -116,16 +116,6 @@
     max-width: 100%;
   }
 
-  .new-post-btn {
-    width: 100%; /* Takes full width of container */
-  }
-
-  .button-container {
-    display: flex;
-    justify-content: flex-end; /* Pushes button to the right */
-  }
-}
-
 @media (min-width: 630px) {
   .new-post-btn {
     width: 157px; /* Fixed width on desktop */
