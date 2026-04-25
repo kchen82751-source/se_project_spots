@@ -47,10 +47,10 @@ const newPostImageInput = newPostForm.querySelector("#card-image-input");
 const newPostCaptionInput = newPostForm.querySelector(
   "#new-post-caption-input",
 ); // or whatever the ID is
-
+const newPostModal = document.querySelector("#new-post-modal");
 const previewModal = document.querySelector("#preview-modal");
 const previewImageEl = previewModal.querySelector(".modal__image");
-// TODO - select the name element
+const previewCaptionEl = previewModal.querySelector(".modal__caption");
 
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
@@ -77,7 +77,7 @@ function getCardElement(data) {
 
   const cardDeleteBtnEl = cardElement.querySelector(".card__delete-button");
   cardDeleteBtnEl.addEventListener("click", () => {
-    cardElement = null;
+    cardElement.remove();
   });
 
   cardImageEl.addEventListener("click", () => {
