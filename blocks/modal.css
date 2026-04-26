@@ -111,11 +111,7 @@
 }
 
 .modal__close-btn:hover {
-  /* Add visual feedback here */
   opacity: 0.7;
-  background-color: #f0f0f0;
-  transform: scale(1.1);
-  color: #ff0000;
 }
 
 .modal__image-container {
@@ -144,10 +140,10 @@
   margin-top: 10px; /* Space below image */
 
   /* Spacing */
-  padding: 8px 12px;
+  padding: 4px 8px;
 
   /* Visual styling */
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background-color: #212121;
   border-radius: 8px;
 
   /* Ensure readability */
@@ -159,7 +155,7 @@
   .modal__container {
     /* Reduce padding for mobile */
     padding: 22px 12px 12px;
-    max-width: 300px;
+    max-width: 375px;
   }
 
   .modal__title {
