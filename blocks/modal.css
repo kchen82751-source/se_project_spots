@@ -72,6 +72,8 @@
 
 .modal__label {
   margin: 0 0 32px;
+  margin-bottom: 32px;
+  display: block;
 }
 
 .modal__input {
@@ -90,6 +92,17 @@
 
 .modal__input::placeholder {
   color: #2121214d;
+}
+
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
+.modal__error {
+  display: block;
+  margin-top: 8px;
+  /* TODO - use correct color and font sizes */
+  color: red;
 }
 
 .modal__submit-btn {
