@@ -99,10 +99,11 @@
 }
 
 .modal__error {
-  display: block;
-  margin-top: 8px;
-  /* TODO - use correct color and font sizes */
-  color: red;
+  visibility: hidden;
+}
+
+.modal__error_visible {
+  visibility: visible;
 }
 
 .modal__submit-btn {
@@ -117,6 +118,12 @@
   border: none;
   margin-top: auto;
   /*TODO - remove max-width in media query */
+}
+
+.modal__button_disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 .modal__submit-btn:hover {

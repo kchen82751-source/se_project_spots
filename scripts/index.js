@@ -98,11 +98,13 @@ function getCardElement(data) {
 // Todo - use this function wherever needed
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  document.addEventListener("keydown", handleEscape);
 }
 
 // Todo - use this function wherever needed
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  document.removeEventListener("keydown", handleEscape);
 }
 
 closeButtons.forEach((button) => {
@@ -164,20 +166,22 @@ initialCards.forEach(function (item) {
 });
 
 editProfileBtn.addEventListener("click", () => {
-  nameInput.value = profileNameEl.textContent;
-  descriptionInput.value = profileDescriptionEl.textContent;
-  //OPTIONAL
-  resetValidation(editForm, [nameInput, descriptionInput]);
-  openModal(editModal);
+  editProfileNameInput.value = profileNameEl.textContent;
+  editProfileDescriptionInput.value = profileDescriptionEl.textContent;
+  resetValidation(editProfileForm, [
+    editProfileNameInput,
+    editProfileDescriptionInput,
+  ]);
+  openModal(editProfileModal);
 });
 editProfileCloseBtn.addEventListener("click", () => {
-  closeModal(editModal);
+  closeModal(editProfileModal); // ✅ Use the correct variable name
 });
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
-newPostModal.addEventListener("click", () => {
-  openModal(cardModal);
-});
-newPostModal.addEventListener("click", () => {
-  closeModal(cardModal);
-});
+const modals = document.querySelectorAll(".modal");
+modals.forEach((modal) =>
+  modal.addEventListener("mousedown", (evt) => {
+    if (evt.target === evt.currentTarget) closeModal(modal);
+  }),
+);
