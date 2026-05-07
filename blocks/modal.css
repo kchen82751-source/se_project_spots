@@ -100,6 +100,11 @@
 
 .modal__error {
   visibility: hidden;
+  display: block;
+  color: #ff0000;
+  opacity: 0.7;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .modal__error_visible {

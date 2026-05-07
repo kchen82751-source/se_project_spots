@@ -106,7 +106,12 @@ function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
   document.removeEventListener("keydown", handleEscape);
 }
-
+function handleEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    closeModal(openedModal);
+  }
+}
 closeButtons.forEach((button) => {
   // Find the closest popup only once
   const popup = button.closest(".modal");
