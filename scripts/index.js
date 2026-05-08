@@ -108,7 +108,7 @@ function closeModal(modal) {
 }
 function handleEscape(evt) {
   if (evt.key === "Escape") {
-    const openedModal = document.querySelector(".modal_opened");
+    const openedModal = document.querySelector(".modal_is-opened");
     closeModal(openedModal);
   }
 }
@@ -173,10 +173,11 @@ initialCards.forEach(function (item) {
 editProfileBtn.addEventListener("click", () => {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
-  resetValidation(editProfileForm, [
-    editProfileNameInput,
-    editProfileDescriptionInput,
-  ]);
+  resetValidation(
+    editProfileForm,
+    [editProfileNameInput, editProfileDescriptionInput],
+    settings,
+  );
   openModal(editProfileModal);
 });
 editProfileCloseBtn.addEventListener("click", () => {
