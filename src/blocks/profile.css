@@ -36,8 +36,6 @@
   border-radius: 8px;
 }
 
-
-
 .profile__column {
   display: flex;
   flex-direction: column;
@@ -119,7 +117,6 @@
   /* TODO - set content of ::after element to "" */
   /* TODO - finish mobile avatar button styles */
 
-
   .profile__avatar {
     height: 80px;
     width: 80px;
@@ -150,7 +147,7 @@
     width: 100%;
     max-width: 100%;
   }
-
+}
 @media (min-width: 630px) {
   .new-post-btn {
     width: 157px; /* Fixed width on desktop */

@@ -1,5 +1,6 @@
-// TODO - pass settings object to the validation functions that are called in this file
-import { setButtonText } from "../src/utils/helpers.js";
+import "./index.css";
+import { enableValidation, validationConfig } from "../scripts/validation.js";
+import { setButtonText } from "../utils/helpers.js";
 import Api from "../utils/Api.js";
 
 // const initialCards = [
@@ -296,3 +297,5 @@ modals.forEach((modal) =>
     if (evt.target === evt.currentTarget) closeModal(modal);
   }),
 );
+
+enableValidation(validationConfig);
