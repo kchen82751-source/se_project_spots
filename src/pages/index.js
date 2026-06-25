@@ -1,5 +1,9 @@
 import "./index.css";
-import { enableValidation, validationConfig } from "../scripts/validation.js";
+import {
+  enableValidation,
+  validationConfig,
+  resetValidation,
+} from "../scripts/validation.js";
 import { setButtonText } from "../utils/helpers.js";
 import Api from "../utils/Api.js";
 
@@ -211,7 +215,7 @@ function handleEditProfileSubmit(evt) {
       name: editProfileNameInput.value,
       about: editProfileDescriptionInput.value,
     })
-    .then._((data) => {
+    .then((data) => {
       // TODO - Use data argument instead of the input value
       profileNameEl.textContent = editProfileNameInput.value;
       profileDescriptionEl.textContent = editProfileDescriptionInput.value;
@@ -274,7 +278,7 @@ editProfileBtn.addEventListener("click", () => {
   resetValidation(
     editProfileForm,
     [editProfileNameInput, editProfileDescriptionInput],
-    settings,
+    validationConfig,
   );
   openModal(editProfileModal);
 });

@@ -29,7 +29,7 @@
               />
             </button>
             <img
-              src="<%=require('./images/avatar.jpg)%>"
+              src="<%=require('./images/avatar.jpg')%>"
               alt="Current's user's avatar"
               class="profile__avatar"
             />
@@ -39,13 +39,13 @@
             <p class="profile__description">Civil Aviator</p>
             <button type="button" class="profile__edit-btn">
               <img
-                src="<%=require('./images/pencil.svg)%>"
+                src="<%=require('./images/pencil.svg')%>"
                 alt="Pencil icon"
               />Edit Profile
             </button>
           </div>
           <button type="button" class="profile__add-btn">
-            <img src="<%=require('./images/plus.svg)%>" alt="Plus icon" /> New
+            <img src="<%=require('./images/plus.svg')%>" alt="Plus icon" /> New
             Post
           </button>
         </section>
@@ -74,7 +74,7 @@
             class="modal__close-btn"
             aria-label="Close modal"
           >
-            <img src="./images/close-icon.svg" alt="Close" />
+            <img src="<%=require('./images/close-icon.svg')%>" alt="Close" />
           </button>
           <h2 class="modal__title">Edit profile</h2>
           <form class="modal__form" novalidate>
@@ -118,7 +118,7 @@
             class="modal__close-btn"
             aria-label="Close modal"
           >
-            <img src="./images/close-icon.svg" alt="Close" />
+            <img src="<%=require('./images/close-icon.svg')%>" alt="Close" />
           </button>
           <h2 class="modal__title">New post</h2>
           <form class="modal__form" novalidate>
@@ -161,7 +161,7 @@
             class="modal__close-btn modal__close-btn_type_preview"
             aria-label="Close modal"
           >
-            <img src="./images/close-icon.svg" alt="Close" />
+            <img src="<%=require('./images/close-icon.svg')%>" alt="Close" />
           </button>
           <img src="#" alt="" class="modal__image" />
           <p class="modal__caption"></p>
@@ -172,7 +172,7 @@
     <div class="modal" id="avatar-profile-modal">
       <div class="modal__container">
         <button type="button" class="modal__close-btn" aria-label="Close modal">
-          <img src="./images/close-icon.svg" alt="Close" />
+          <img src="<%=require('./images/close-icon.svg')%>" alt="Close" />
         </button>
         <h2 class="modal__title">Edit avatar</h2>
         <form class="modal__form" novalidate id="edit-avatar-form">
@@ -196,7 +196,7 @@
     <div class="modal" id="delete-modal">
       <div class="modal__container">
         <button type="button" class="modal__close-btn" aria-label="Close modal">
-          <img src="./images/close-icon.svg" alt="Close" />
+          <img src="<%=require('./images/close-icon.svg')%>" alt="Close" />
         </button>
         <h2 class="modal__title">
           Are you sure you want to delete this image?

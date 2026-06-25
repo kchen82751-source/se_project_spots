@@ -53,7 +53,7 @@ const disableButton = (buttonEl, config) => {
   // Don't forget the CSS
 };
 
-const resetValidation = (formEl, inputList, config) => {
+export const resetValidation = (formEl, inputList, config) => {
   inputList.forEach((input) => {
     hideInputError(formEl, input, config);
   });
