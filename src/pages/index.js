@@ -47,19 +47,6 @@ const api = new Api({
 });
 
 // Destructure the second item in the callback of the .then()
-api
-  .getAppInfo()
-  .then(([cards]) => {
-    cards.forEach((item) => {
-      const cardEl = getCardElement(item);
-      cardsList.append(cardEl);
-    });
-
-    // Handle the user's information
-    // - set the src of the avatar image
-    // - set the textContent of both the text elements
-  })
-  .catch(console.error);
 
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
@@ -90,7 +77,7 @@ const previewCaptionEl = previewModal.querySelector(".modal__caption");
 
 const avatarModal = document.querySelector("#avatar-profile-modal");
 const avatarForm = avatarModal.querySelector(".modal__form");
-const avatarSubmitBtn = avatarModal.querySelector(".modal__button");
+const avatarSubmitBtn = avatarModal.querySelector(".modal__submit-btn");
 const avatarModalCloseBtn = avatarModal.querySelector(".modal__close");
 const avatarInput = avatarModal.querySelector("#profile-avatar-input");
 
@@ -100,6 +87,7 @@ const deleteForm = deleteModal.querySelector(".modal__form");
 
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
+const profileAvatarEl = document.querySelector(".profile__avatar");
 const closeButtons = document.querySelectorAll(".modal__close-btn");
 
 const cardTemplate = document
@@ -189,17 +177,21 @@ newPostBtn.addEventListener("click", function () {
 
 newPostForm.addEventListener("submit", function (evt) {
   evt.preventDefault(); // Stop the page from reloading
+  //TODO2: implement API
 
   // Log both values to console (as required)
   const inputValues = {
     name: newPostCaptionInput.value,
     link: newPostImageInput.value,
   };
-  const cardElement = getCardElement(inputValues);
-  cardsList.prepend(cardElement);
-  // Close the modal after submission
-  closeModal(newPostModal);
-  newPostForm.reset();
+
+  api.addCard(inputValues).then((newCard) => {
+    const cardElement = getCardElement(inputValues);
+    cardsList.prepend(cardElement);
+    // Close the modal after submission
+    closeModal(newPostModal);
+    newPostForm.reset();
+  });
 });
 
 function handleEditProfileSubmit(evt) {
@@ -253,7 +245,7 @@ function handleAvatarSubmit(evt) {
     .editAvatarInfo(avatarInput.value)
     .then((data) => {
       console.log(data.avatar);
-      // TODO - make this work
+      profileAvatarEl.src = data.avatar;
     })
     .catch(console.error);
 }
@@ -301,5 +293,18 @@ modals.forEach((modal) =>
     if (evt.target === evt.currentTarget) closeModal(modal);
   }),
 );
+api
+  .getAppInfo()
+  .then(([cards, userInfo]) => {
+    profileNameEl.textContent = userInfo.name;
+    profileDescriptionEl.textContent = userInfo.about;
+    profileAvatarEl.src = userInfo.avatar;
+
+    cards.forEach((item) => {
+      const cardEl = getCardElement(item);
+      cardsList.append(cardEl);
+    });
+  })
+  .catch(console.error);
 
 enableValidation(validationConfig);

@@ -8,7 +8,19 @@ class Api {
 
   getAppInfo() {
     // TODO - Call getUserInfo it in this array
-    return Promise.all([this.getInitialCards()]);
+    return Promise.all([this.getInitialCards(), this.getUser()]);
+  }
+
+  getUser() {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: "GET",
+      headers: this._headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      Promise.reject("Error: ${res.status}");
+    });
   }
 
   getInitialCards() {
@@ -47,6 +59,20 @@ class Api {
       body: JSON.stringify({
         avatar,
       }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
+  //TODO2: implement addCard
+  addCard(card) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify(card),
     }).then((res) => {
       if (res.ok) {
         return res.json();
