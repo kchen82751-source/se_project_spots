@@ -6,6 +6,7 @@ import {
 } from "../scripts/validation.js";
 import { setButtonText } from "../utils/helpers.js";
 import Api from "../utils/Api.js";
+import { data } from "autoprefixer";
 
 // const initialCards = [
 //   {
@@ -113,8 +114,11 @@ function getCardElement(data) {
   //   cardLikeBtnEl.classList.toggle("card__like-button_active");
   // });
 
+  const isLiked = cardLikeBtnEl.classList.contains("card__like-button_active");
   const cardDeleteBtnEl = cardElement.querySelector(".card__delete-button");
-  cardLikeBtnEl.addEventListener("click", (evt) => handleLike(evt, data._id));
+  cardLikeBtnEl.addEventListener("click", (evt) =>
+    handleLike(evt, data._id, isLiked),
+  );
   cardDeleteBtnEl.addEventListener("click", () => {
     cardElement.remove(data._id);
   });
@@ -141,8 +145,16 @@ function closeModal(modal) {
   document.removeEventListener("keydown", handleEscape);
 }
 
-function handleLike(evt, id) {
+function handleLike(evt, id, isLiked) {
   evt.target.classList.toggle("card__like-button_active");
+  // const isLiked
+  api
+    .changeLikeStatus(id, isLiked)
+    .then((data) => {
+      console.log(data.likestatus);
+      // cardLikeBtnEl.src = data.likestatus;
+    })
+    .catch(console.error);
   // 1. check whether card is currently liked or not
   //     const isLiked = ???;
   // 2. call the changeLikeStatus method, passing it the appropriate arguments
@@ -253,8 +265,10 @@ function handleAvatarSubmit(evt) {
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
   api
-    .deleteCard(selectedCardId)
-    .then(() => {
+    .deleteCard(cardInput)
+    .then((data) => {
+      console.log(data.card);
+      cardDeleteBtnEl.src = data.card;
       // TODO
       // remove the card from the DOM
       // close the modal
