@@ -23,6 +23,8 @@
 
 .profile__avatar-container:hover .profile__avatar-btn {
   visibility: visible;
+  background-color: transparent;
+  border: none;
 }
 
 .profile__avatar-btn::after {

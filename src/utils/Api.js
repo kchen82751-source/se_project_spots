@@ -1,4 +1,10 @@
 class Api {
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Error: ${res.status}`);
+  }
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
     this._headers = headers;
@@ -15,26 +21,14 @@ class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      Promise.reject("Error: ${res.status}");
-    });
+    }).then(this._checkResponse);
   }
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      Promise.reject("Error: ${res.status}");
-    });
+    }).then(this._checkResponse);
   }
-
-  // TODO - implement POST /cards
 
   editUserInfo({ name, about }) {
     return fetch(`${this._baseUrl}/users/me`, {
@@ -44,12 +38,7 @@ class Api {
         name,
         about,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      Promise.reject("Error: ${res.status}");
-    });
+    }).then(this._checkResponse);
   }
 
   editAvatarInfo(avatar) {
@@ -59,12 +48,7 @@ class Api {
       body: JSON.stringify({
         avatar,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      Promise.reject(`Error: ${res.status}`);
-    });
+    }).then(this._checkResponse);
   }
 
   //TODO2: implement addCard
@@ -73,36 +57,27 @@ class Api {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify(card),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      Promise.reject("Error: ${res.status}");
-    });
+    }).then(this._checkResponse);
   }
+
+  //   addCard(data) {
+  //     return fetch(`${this._baseUrl}/cards`, { ... })
+  //       .then(res => this._checkResponse(res));  // ✅ same function, no repetition!
+  //   }
+  // }
 
   deleteCard(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: "DELETE",
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      Promise.reject("Error: ${res.status}");
-    });
+    }).then(this._checkResponse);
   }
 
   changeLikeStatus(id, isLiked) {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: isLiked ? "DELETE" : "PUT",
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      Promise.reject("Error: ${res.status}");
-    });
+    }).then(this._checkResponse);
   }
 }
 
